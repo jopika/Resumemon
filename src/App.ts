@@ -39,7 +39,7 @@ app.post('/', upload.array('file-to-upload', 2), (req, res) => {
         pokemons.push(parse(pdfData, globalBuzzwords).then(function (buzzwords: any) {
             let powerLevel: number = generatePowerLevel(buzzwords);
             let moveSet: Set<Move> = generateMoveSet(buzzwords);
-            let type: string = getType(buzzwords);
+            let type: PokeType = getType(buz);
             let name: string = getPokemonByType(type as string);
             let imgUrl: string = getPokemonImageString(name);
             let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet, imgUrl);
@@ -75,6 +75,10 @@ app.post('/', upload.array('file-to-upload', 2), (req, res) => {
 app.post('/', upload.single('second-file-to-upload'), (req, res) => {
 
 }) ;
+
+app.get('/pokemonBattleTheme.mp3', (req, res) => {
+    res.send();
+});
 
 app.listen(3000);
 
