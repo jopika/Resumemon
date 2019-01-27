@@ -1,0 +1,54 @@
+Agile
+Android
+Android Studio Code
+App
+Ajax
+Algorithm
+Back-end
+Blockchain
+Cloud Computing
+Distributed Systems
+software engineering
+Linux
+Unix
+Bash
+C
+C++
+C
+Data Mining
+Deep Learning
+Design Pattern
+Front-end
+HTML
+Javascript
+Java
+Kotlin
+Github
+Typescript
+Node.js
+Machine Learning
+Mobile
+Web Design
+Scalability
+Server
+Security
+Encryption
+UI/UX Designer
+full-stack
+project manager
+customer focused
+leadership
+Golang
+API
+REST
+SQL
+MySQL
+Cassandra
+Postgres
+cockroachDB
+MongoDB
+docker
+kubernetes
+Python
+
+
