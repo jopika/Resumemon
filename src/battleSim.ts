@@ -1,4 +1,5 @@
 import {Pokemon} from "./Pokemon";
+import {TypeTable} from "./TypeTable";
 
 export class battleSim {
 
@@ -24,10 +25,11 @@ export class battleSim {
             activePlayer = p2;
             defPlayer = p1;
         }
+        console.log(activePlayer.name + " has won the dice role and will be going first.");
 
         // battle while both players are alive
         while (p1.health > 0 && p2.health > 0) {
-            console.log("it is " + activePlayer.name + "'s turn.");
+            console.log("Turn " + turn + ": it is " + activePlayer.name + "'s turn.");
             this.attack(activePlayer, defPlayer);
             // if def player has no more hp, end the battle
             // activePlayer wins
@@ -40,6 +42,7 @@ export class battleSim {
             let holder = defPlayer;
             defPlayer = activePlayer;
             activePlayer = holder;
+            turn++;
         }
     }
 
@@ -50,7 +53,7 @@ export class battleSim {
      * @param {Pokemon} def: defending player
      */
     private attack(att: Pokemon,def: Pokemon) {
-        let multiplier: number; //TODO: Initialize multiplier
+        let multiplier = new TypeTable().getDamageMultiplier(att.type, def.type);
         let attMove = att.pickAttack();
         let moveName = attMove.name;
         let damage = attMove.damage * multiplier;
@@ -67,10 +70,4 @@ export class battleSim {
         p.health -= amt;
         console.log(p.name + " has " + p.health + " HP left.");
     }
-
-
-
-
-
-
 }
