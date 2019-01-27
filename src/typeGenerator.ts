@@ -41,6 +41,7 @@ export function getType(buzzwords: Buzzwords): string {
         //         return PokeType.ice;
         // }
     let buzzTypeList: string[] = [];
+    buzzTypeList.push('normal');
     for (let buzzword in buzzwords.buzzwords ) {
         let buzzWordCount: number = buzzwords.buzzwords[buzzword];
         for (let i=0; i < buzzWordCount; i++) {
