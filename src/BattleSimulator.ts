@@ -75,7 +75,7 @@ export class BattleSimulator {
         console.log(att.name + " uses " + moveName + ". It does " + damage + " damage!");
         // let smallEventLog: Array<string> = [];
         // smallEventLog.push(this.updateHealth(def, damage));
-        return `${att.name} uses ${moveName.toUpperCase()}. It does ${damage} damage!
+        return `${att.name} uses ${moveName.toUpperCase()}. It does <b>${damage}</b> damage!
         ${this.updateHealth(def, damage)}`;
     }
 
@@ -89,8 +89,8 @@ export class BattleSimulator {
         if (p.health < 0) {
             p.health = 0;
         }
-        console.log(p.name + " has " + p.health + " HP left.");
-        return `${p.name} has ${p.health} HP left.`;
+        console.log(p.name + " has <b>" + p.health + "</b> HP left.");
+        return `${p.name} has <b>${p.health}</b> HP left.`;
     }
 
     private generateNewPokemon(src: Pokemon): Pokemon {
