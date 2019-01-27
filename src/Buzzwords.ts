@@ -1,7 +1,7 @@
 export class Buzzwords {
-    buzzwords: {[key: string]: number};
-    nonBuzz: number; // number of non-buzzwords in document
-    totalBuzz: number; // total number of buzzwords in document
+    private buzzwords: {[key: string]: number};
+    private nonBuzz: number;
+    private totalBuzz: number;
 
     constructor() {
         this.buzzwords = {};
