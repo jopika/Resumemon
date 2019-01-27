@@ -10,9 +10,13 @@
             display: flex;
             justify-content: space-around;
         }
-        p{
+        #pkmn{
             font-family: "Press Start 2P";
             font-size: 12px;
+        }
+        #log{
+            font-family: "Arial";
+            font-size: 16px;
         }
     </style>
 </head>
@@ -25,7 +29,7 @@
             return;
         }
         setTimeout(function() {
-            document.getElementById("eventLog").innerHTML += `<div class='eventMessage'><span><p>${stringArray.shift()}</p></span></div>`;
+            document.getElementById("eventLog").innerHTML += `<div class='eventMessage' id='log'><span><p>${stringArray.shift()}</p></span></div>`;
             recursiveSleep(stringArray);
         }, 1000);
     }
@@ -51,7 +55,7 @@
             <embed src="pokemonBattleTheme.mp3" width="180" height="90" hidden="true" />
             </audio>        <embed src="pokemonBattleTheme.mp3" width="180" height="90" loop="false" autostart="false" hidden="true" />
 <% for (const pokemon of pokemons) { %>
-    <div class="pokemon">
+    <div class="pokemon" id="pkmn">
         <img height=400 src="<%= pokemon.image %>"/>
         <p><b>NAME: </b><%= pokemon.name.toUpperCase() %></p>
         <p><b>LEVEL: </b><%= pokemon.level %></p>
