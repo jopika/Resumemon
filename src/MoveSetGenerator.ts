@@ -8,7 +8,7 @@ export function generateMoveSet(buzzwordObj: Buzzwords): Set<String> {
     let buzzwordKeys = Object.keys(buzzwordObj.buzzwords);
 
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4 && density.length > 0; i++) {
 
         // console.log(`Density: ${density.toString()}`);
 
@@ -68,7 +68,7 @@ export function generateCumulativeDensity(buzzwordObj: Buzzwords) : number[] {
 
 function findCumulativeDensity(density: number[], slot: number) : number {
     let currentIndex = density.length - 1;
-    
+
     while (currentIndex > 0) {
         if (slot >= density[currentIndex]) {
             return currentIndex;
