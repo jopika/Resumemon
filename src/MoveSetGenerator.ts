@@ -50,15 +50,20 @@ export function generateMoveSet(buzzwordObj: Buzzwords): Set<Move> {
 
     for (let moveName of moveNames) {
         moveSet.add(new Move(moveName,
-            generateRandomInt(MAX_DAMAGE - MIN_DAMAGE) + MIN_DAMAGE));
+            generateDamage(buzzwordObj.buzzwords[moveName])
+            // generateRandomInt(MAX_DAMAGE - MIN_DAMAGE) + MIN_DAMAGE)
+            ));
     }
 
     return moveSet;
 }
 
 
-export function generateRandomInt(openMax: number): number {
-    return Math.floor(Math.random() * Math.floor(openMax) + 1);
+export function generateDamage(repeats: number): number {
+    // return Math.floor(Math.random() * Math.floor(openMax) + 1);
+    let damage = repeats * 10;
+    if (repeats > 5) damage = 50;
+    return damage;
 }
 
 export function generateCumulativeDensity(buzzwordObj: Buzzwords) : number[] {
