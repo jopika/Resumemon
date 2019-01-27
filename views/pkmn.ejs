@@ -3,14 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Resumemon</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <style>
-        td,th{padding: 5px 16px; text-align:left; font-family: "Arial"}
+        td,th{padding: 5px 16px; text-align:left; font-family: "Press Start 2P"; font-size: 12px;}
         body{
             display: flex;
             justify-content: space-around;
         }
-        p{
+        #pkmn{
+            font-family: "Press Start 2P";
+            font-size: 12px;
+        }
+        #log{
             font-family: "Arial";
+            font-size: 16px;
         }
     </style>
 </head>
@@ -24,7 +30,7 @@
             return;
         }
         setTimeout(function() {
-            document.getElementById("eventLog").innerHTML += `<div class='eventMessage'><span><p>${stringArray.shift()}</p></span></div>`;
+            document.getElementById("eventLog").innerHTML += `<div class='eventMessage' id='log'><span><p>${stringArray.shift()}</p></span></div>`;
             recursiveSleep(stringArray);
         }, 1000);
     }
@@ -54,7 +60,7 @@
             <!--<embed src="pokemonBattleTheme.mp3" width="180" height="90" hidden="true" />-->
         </audio>
 <% for (const pokemon of pokemons) { %>
-    <div class="pokemon">
+    <div class="pokemon" id="pkmn">
         <img height=400 src="<%= pokemon.image %>"/>
         <p><b>NAME: </b><%= pokemon.name.toUpperCase() %></p>
         <p><b>LEVEL: </b><%= pokemon.level %></p>
