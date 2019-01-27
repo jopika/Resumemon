@@ -1,8 +1,11 @@
 import { Buzzwords } from "./Buzzwords";
+import {Move} from "./Move";
 
 
-export function generateMoveSet(buzzwordObj: Buzzwords): Set<String> {
-    let moveSet: Set<String> = new Set<String>();
+let MAX_DAMAGE: number = 40;
+
+export function generateMoveSet(buzzwordObj: Buzzwords): Set<Move> {
+    let moveNames: Set<String> = new Set<String>();
 
     let density = generateCumulativeDensity(buzzwordObj);
     let buzzwordKeys = Object.keys(buzzwordObj.buzzwords);
@@ -24,7 +27,7 @@ export function generateMoveSet(buzzwordObj: Buzzwords): Set<String> {
 
         // console.log(`Selected: ${buzzwordKeys[selectedIndex]}`);
 
-        moveSet.add(buzzwordKeys[selectedIndex]);
+        moveNames.add(buzzwordKeys[selectedIndex]);
 
         let newBuzzwordKeys: string[] = [];
         for (let i = 0; i < buzzwordKeys.length; i++) {
@@ -41,7 +44,19 @@ export function generateMoveSet(buzzwordObj: Buzzwords): Set<String> {
         // console.log(`After; BuzzwordKey: ${buzzwordKeys}`);
         // console.log(`After: Types ${buzzwordKeys.length}`);
     }
+
+    let moveSet: Set<Move> = new Set<Move>();
+
+    for (let moveName of moveNames) {
+        moveSet.add(new Move(moveName, generateRandomInt(MAX_DAMAGE)));
+    }
+
     return moveSet;
+}
+
+
+export function generateRandomInt(openMax: number): number {
+    return Math.floor(Math.random() * Math.floor(openMax) + 1);
 }
 
 export function generateCumulativeDensity(buzzwordObj: Buzzwords) : number[] {
