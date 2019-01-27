@@ -74,10 +74,6 @@ app.post('/', upload.array('file-to-upload', 2), (req, res) => {
 
 app.post('/', upload.single('second-file-to-upload'), (req, res) => {
 
-}) ;
-
-app.get('/pokemonBattleTheme.mp3', (req, res) => {
-    res.send();
 });
 
 app.listen(3000);
