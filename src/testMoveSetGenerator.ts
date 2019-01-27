@@ -27,3 +27,10 @@ let mockBuzz: Buzzwords = {
 console.log(generateMoveSet(mockBuzz));
 
 
+let x = generateMoveSet(mockBuzz);
+
+for (let y of x) {
+    console.log(y.name);
+}
+
+

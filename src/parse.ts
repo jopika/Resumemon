@@ -13,7 +13,6 @@ export function parse(pdfData: any, globalBuzzwords: string[]) {
         let resume: String = resumeArr.join(" ");
         resume = resume.trim();
 
-        console.log(resume);
         let buzzwords: Buzzwords = new Buzzwords();
         let totalBuzzwords: number = 0;
         for (let word of globalBuzzwords) {
