@@ -23,7 +23,7 @@
         </thead>
         <% for (let move of moveset) { %>
         <tr>
-            <td><%= move.name %></td>
+            <td><%= move.name.toUpperCase() %></td>
             <td><%= move.damage %></td>
         </tr>
         <% } %>
