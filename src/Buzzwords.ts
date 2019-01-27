@@ -8,4 +8,6 @@ export class Buzzwords {
         this.nonBuzz = 0;
         this.totalBuzz = 0;
     }
+
+
 }
