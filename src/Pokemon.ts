@@ -10,7 +10,7 @@ export class Pokemon {
 
     constructor(name: string, powerLevel: number, type: string, moveset: Set<Move>, image: string) {
         this.name = name;
-        this.health = Math.ceil(200 + powerLevel * 2);
+        this.health = Math.ceil(100 + powerLevel * 3);
         // this.health = Math.ceil(200 + (Math.log(powerLevel) / Math.log(10)) * 100);
         this.level = powerLevel;
         this.type = type;
