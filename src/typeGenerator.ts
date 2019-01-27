@@ -6,78 +6,73 @@ export class typeGenerator {
     }
 
     /**
-     * Given a list of buzzwords, return a pokemon type based on how many of those words
-     * fall into certain categories
-     * @param {Buzzwords} bw: list of buzzwords to relate
-     * @returns {pokeType}: type of pokemon
+     * returns a random pokemon type
+     * @returns {any}
      */
-    public computeType(bw: Buzzwords): pokeType {
-        return pokeType.normal; // stub
-    }
-
-    /**
-     *
-     * @param {Buzzwords} bw: list of buzzwords
-     * @returns {number}: number corresponding to group
-     */
-    private getGroup(bw: Buzzwords): number {
-        let mobile:Set<String> = new Set<String>(["android", "android studio code", "app", "mobile"]);
-        let internet:Set<String> = new Set<String>(["web design", "blockchain", "server", "cloud computing", "distributed system",
-                                                          "ajax", "html", "css", "api", "rest"]);
-        let frontend:Set<String> =  new Set<String>(["ui/ux designer", "html", "css"]);
-        let management:Set<String> = new Set<String>(["project manager", "customer focused", "leadership"]);
-        let progTerms:Set<String> = new Set<String>(["software engineering", "agile", "algorithm", "design pattern",
-                                                           "front-end", "linux", "full-stack", "unix", "bash", "scalability",
-                                                           "back-end", "github"]);
-        let languages:Set<String> = new Set<String>(["c", "sql", "c++", "c#", "javascript", "java", "kotlin", "python",
-                                                           "typescript", "html", "css", "node.js", "golang", "docker", "kubernetes"]);
-        let database:Set<String> =  new Set<String>(["mysql", "cassandra", "postgres", "cockroachdb", "mongodb"]);
-        let ml:Set<String> = new Set<String>(["machine learning", "computer vision", "data mining", "aritificial intelligence"]);
-        let security:Set<String> = new Set<String>(["security", "encryption"]);
-
-        let groupArray: Array<Set<String>> = [mobile, internet, frontend, management, progTerms, languages, database, ml, security];
-
-        for (let g of groupArray) {
-
+    public getType() {
+        let random: number = Math.floor(Math.random() * 18 + 1);
+        switch (random) {
+            case 1:
+                return pokeType.steel;
+            case 2:
+                return pokeType.ghost;
+            case 3:
+                return pokeType.fire;
+            case 4:
+                return pokeType.poison;
+            case 5:
+                return pokeType.fairy;
+            case 6:
+                return pokeType.water;
+            case 7:
+                return pokeType.dragon;
+            case 8:
+                return pokeType.electric;
+            case 9:
+                return pokeType.flying;
+            case 10:
+                return pokeType.ground;
+            case 11:
+                return pokeType.dark;
+            case 12:
+                return pokeType.bug;
+            case 13:
+                return pokeType.fighting;
+            case 14:
+                return pokeType.normal;
+            case 15:
+                return pokeType.rock;
+            case 16:
+                return pokeType.grass;
+            case 17:
+                return pokeType.psychic;
+            case 18:
+                return pokeType.ice;
         }
-
-        return 0
-
     }
 
-
-
-
-    /** Documentation for groups:
-     * 1: Mobile Development
-     * 2: Internet/Network
-     * 3: Forntend
-     * 4: Management
-     * 5: Programming Terms
-     * 6: Languages:
-     * 7: Databases
-     * 8: ML
-     * 9: Security
-     */
 }
 
 /**
  * Types of pokemon available
  */
 export enum pokeType {
-    normal, // languages
-    fighting, // Management
-    flying,  // Mobile development
-    poison, // frontend
-    ground, // languages
-    rock, // database
-    bug,  // frontend
-    ghost, // Internet/Network Stuff
-    fire, // Security
-    water, // Programming Terms
-    grass, // languages
-    electric, // security
-    psychic, // ML
-    ice, // Programming Terms
-    dragon, // Mobile Development
+    normal = "normal", 
+    fighting = "fighting",
+    flying = "flying",
+    poison = "poison",
+    ground = "ground",
+    rock = "rock",
+    bug = "bug",
+    ghost = "ghost",
+    fire = "fire",
+    water = "water",
+    grass = "grass",
+    electric = "electric",
+    psychic = "psychic",
+    ice = "ice",
+    dragon = "dragon",
+    steel = "steel",
+    fairy = "fairy",
+    dark = "dark"
 }
