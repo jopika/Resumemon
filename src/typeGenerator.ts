@@ -57,7 +57,7 @@ export class typeGenerator {
  * Types of pokemon available
  */
 export enum pokeType {
-    normal = "normal", 
+    normal = "normal",
     fighting = "fighting",
     flying = "flying",
     poison = "poison",
