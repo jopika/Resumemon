@@ -43,6 +43,7 @@ export class BattleSimulator {
             eventLog.push(`Turn ${turn}: it is ${activePlayer.name}'s turn.`);
 
             eventLog.push(this.attack(activePlayer, defPlayer));
+            // eventLog.push(`${activePlayer.name} HP: ${activePlayer.health} --- ${defPlayer.name} HP: `)
             // if def player has no more hp, end the battle
             // activePlayer wins
             if (defPlayer.health  <= 0) {
@@ -72,9 +73,10 @@ export class BattleSimulator {
         let moveName = attMove.name;
         let damage = attMove.damage * multiplier;
         console.log(att.name + " uses " + moveName + ". It does " + damage + " damage!");
-        this.updateHealth(def, damage);
-
-        return `${att.name} uses ${moveName.toUpperCase()}. It does ${damage} damage!`;
+        // let smallEventLog: Array<string> = [];
+        // smallEventLog.push(this.updateHealth(def, damage));
+        return `${att.name} uses ${moveName.toUpperCase()}. It does ${damage} damage!
+        ${this.updateHealth(def, damage)}`;
     }
 
     /**
@@ -82,9 +84,10 @@ export class BattleSimulator {
      * @param {Pokemon} p: pokemon whose health needs modification
      * @param {number} amt: amount of health to change
      */
-    private updateHealth(p: Pokemon, amt: number) {
+    private updateHealth(p: Pokemon, amt: number): string {
         p.health -= amt;
         console.log(p.name + " has " + p.health + " HP left.");
+        return `${p.name} has ${p.health} HP left.`;
     }
 
     private generateNewPokemon(src: Pokemon): Pokemon {
