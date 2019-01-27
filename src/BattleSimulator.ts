@@ -21,17 +21,14 @@ export class BattleSimulator {
         let activePlayer: Pokemon;
         let defPlayer: Pokemon;
 
-        // console.log(`Active Player: ${activePlayer.toString()}`);
-        // console.log(`Defending Player: ${defPlayer.toString()}`);
-
         // sets activePlayer randomly
         let diceRoll = Math.floor(Math.random() * 2 + 1);
         if (diceRoll === 1) {
-            activePlayer = p1;
-            defPlayer = p2;
+            activePlayer = this.generateNewPokemon(p1);
+            defPlayer = this.generateNewPokemon(p2);
         } else {
-            activePlayer = p2;
-            defPlayer = p1;
+            activePlayer = this.generateNewPokemon(p2);
+            defPlayer = this.generateNewPokemon(p1);
         }
 
         activePlayer.name = activePlayer.name.toUpperCase();
@@ -41,7 +38,7 @@ export class BattleSimulator {
         eventLog.push(`${activePlayer.name} has won the dice role and will be going first.`);
 
         // battle while both players are alive
-        while (p1.health > 0 && p2.health > 0) {
+        while (activePlayer.health > 0 && defPlayer.health > 0) {
             console.log("Turn " + turn + ": it is " + activePlayer.name + "'s turn.");
             eventLog.push(`Turn ${turn}: it is ${activePlayer.name}'s turn.`);
 
@@ -77,7 +74,7 @@ export class BattleSimulator {
         console.log(att.name + " uses " + moveName + ". It does " + damage + " damage!");
         this.updateHealth(def, damage);
 
-        return `${att.name} uses ${moveName}. It does ${damage} damage!`;
+        return `${att.name} uses ${moveName.toUpperCase()}. It does ${damage} damage!`;
     }
 
     /**
@@ -89,4 +86,13 @@ export class BattleSimulator {
         p.health -= amt;
         console.log(p.name + " has " + p.health + " HP left.");
     }
+
+    private generateNewPokemon(src: Pokemon): Pokemon {
+        const obj: any = Object.create(Pokemon.prototype);
+        for (const key of Object.keys(src)) {
+            obj[key] = (src as any)[key];
+        }
+        return obj as Pokemon;
+    }
+
 }
