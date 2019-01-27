@@ -18,12 +18,14 @@
             font-family: "Arial";
             font-size: 16px;
         }
+        .backButton {
+            position:absolute;
+            bottom: 100px;
+        }
     </style>
 </head>
 
 <script>
-
-
     function recursiveSleep(stringArray) {
         if (stringArray.length <= 0) {
             document.getElementById("battleMusic").pause();
@@ -55,12 +57,16 @@
 }
 </script>
 <body>
+
+
+<!--<a href="/index.html">Back</a>-->
 <audio src="pokemonBattleTheme.mp3" id="battleMusic">
     <p>If you are reading this, it is because your browser does not support the audio element.     </p>
 </audio>
 <audio src="pokemonVictory.mp3" id="victoryMusic">
     <p>If you are reading this, it is because your browser does not support the audio element.     </p>
 </audio>
+<!--<div id="pokemonBox">-->
 <% for (const pokemon of pokemons) { %>
     <div class="pokemon" id="pkmn">
         <img height=400 src="<%= pokemon.image %>"/>
@@ -83,8 +89,13 @@
         </table></p>
     </div>
 <% } %>
+<!--</div>-->
 
-<% if (eventLog.length > 0) { %>
+<form class="backButton" action="/index.html">
+    <input type="submit" value="Generate more Pokemon!" />
+</form>
+
+    <% if (eventLog.length > 0) { %>
 <button onclick="revealEventLog()" id="battleButton">
     Battle!
 </button>
