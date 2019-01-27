@@ -16,4 +16,15 @@ export class Pokemon {
         this.moveset = moveset;
         this.image = image;
     }
+
+    /**
+     * Picks a random move from moveset
+     * @returns {Move}: Move chosen at random
+     */
+    public pickAttack(): Move {
+        let numMoves = this.moveset.size;
+        let moveArr = Array.from(this.moveset);
+        return moveArr[Math.floor(Math.random() * numMoves + 1)];
+    }
+
 }

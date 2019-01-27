@@ -47,7 +47,7 @@ export function getType(): PokeType {
  * Types of pokemon available
  */
 export enum PokeType {
-    normal = "normal", 
+    normal = "normal",
     fighting = "fighting",
     flying = "flying",
     poison = "poison",
