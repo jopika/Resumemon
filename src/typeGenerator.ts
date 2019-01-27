@@ -1,15 +1,6 @@
 import {Buzzwords} from "./Buzzwords";
 
-
-export class typeGenerator {
-    constructor() {
-    }
-
-    /**
-     * returns a random pokemon type
-     * @returns {any}
-     */
-    public getType() {
+export function getType() {
         let random: number = Math.floor(Math.random() * 18 + 1);
         switch (random) {
             case 1:
@@ -49,7 +40,6 @@ export class typeGenerator {
             case 18:
                 return pokeType.ice;
         }
-    }
 
 }
 

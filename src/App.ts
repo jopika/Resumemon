@@ -2,6 +2,8 @@ import express from "express";
 import {parse} from "./parse";
 import { generatePowerLevel } from "./powerLevel";
 import {generateMoveSet} from "./MoveSetGenerator";
+import {getType} from "./typeGenerator";
+import {Pokemon} from "./Pokemon";
 const fs = require('fs');
 const multer = require('multer');
 
@@ -28,9 +30,15 @@ app.post('/', upload.single('file-to-upload'), (req, res) => {
 
     // Parse the resume and do stuff with the returned Buzzwords object
     parse(pdfData, globalBuzzwords).then(function(buzzwords: any){
-        console.log(buzzwords);
-        console.log(generatePowerLevel(buzzwords));
-        console.log(generateMoveSet(buzzwords));
+        let powerLevel = generatePowerLevel(buzzwords);
+        let moveSet = generateMoveSet(buzzwords);
+        let type = getType();
+        let pokemon : Pokemon = new Pokemon("Pikachu", powerLevel, type, moveSet);
+        console.log(pokemon);
+        //console.log(buzzwords);
+        //console.log(generatePowerLevel(buzzwords));
+        //console.log(generateMoveSet(buzzwords));
+        //console.log(getType());
     });
     res.redirect('/pkmn.html');
 });
