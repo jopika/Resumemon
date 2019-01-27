@@ -1,21 +1,21 @@
 Agile
 Android
-Android Studio Code
 App
 Ajax
-Algorithm
+Algorithms
+data structures
 Back-end
 Blockchain
-Cloud Computing
+Cloud
 Distributed Systems
 software engineering
+software development
 Linux
 Unix
 Bash
 C
 Data Mining
 Deep Learning
-Design Pattern
 Front-end
 HTML
 Javascript
@@ -31,10 +31,10 @@ Scalability
 Server
 Security
 Encryption
-UI/UX Designer
+UX Design
+UI
 full-stack
-project manager
-customer focused
+project management
 leadership
 Golang
 API
@@ -42,10 +42,45 @@ REST
 SQL
 MySQL
 Cassandra
-Postgres
+PostgreSQL
 cockroachDB
 MongoDB
 docker
 kubernetes
 Python
 artificial intelligence
+ruby
+CSS
+react
+angularjs
+.net
+swift
+ios
+rust
+typescript
+django
+rails
+vue.js
+big data
+matlab
+latex
+R
+neutral networks
+dynamodb
+aws
+azure
+php
+perl
+racket
+haskell
+lua
+ocaml
+erlang
+scala
+shell
+terminal
+devops
+osx
+windows
+database
+open source

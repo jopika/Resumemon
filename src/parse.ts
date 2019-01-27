@@ -13,10 +13,11 @@ export function parse(pdfData: any, globalBuzzwords: string[]) {
         let resume: String = resumeArr.join(" ");
         resume = resume.trim();
 
+        console.log(resume);
         let buzzwords: Buzzwords = new Buzzwords();
         let totalBuzzwords: number = 0;
         for (let word of globalBuzzwords) {
-            let regexp = new RegExp(word+'\\W', 'g');
+            let regexp = new RegExp('\\W'+word+'\\W', 'g');
             let count: number = (resume.match(regexp) || []).length;
             if (count > 0) {
                 buzzwords.buzzwords[word] = count;

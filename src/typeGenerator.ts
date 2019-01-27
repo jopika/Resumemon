@@ -1,62 +1,52 @@
 import {Buzzwords} from "./Buzzwords";
 
-
-export class typeGenerator {
-    constructor() {
-    }
-
-    /**
-     * returns a random pokemon type
-     * @returns {any}
-     */
-    public getType() {
+export function getType(): PokeType {
         let random: number = Math.floor(Math.random() * 18 + 1);
         switch (random) {
             case 1:
-                return pokeType.steel;
+                return PokeType.steel;
             case 2:
-                return pokeType.ghost;
+                return PokeType.ghost;
             case 3:
-                return pokeType.fire;
+                return PokeType.fire;
             case 4:
-                return pokeType.poison;
+                return PokeType.poison;
             case 5:
-                return pokeType.fairy;
+                return PokeType.fairy;
             case 6:
-                return pokeType.water;
+                return PokeType.water;
             case 7:
-                return pokeType.dragon;
+                return PokeType.dragon;
             case 8:
-                return pokeType.electric;
+                return PokeType.electric;
             case 9:
-                return pokeType.flying;
+                return PokeType.flying;
             case 10:
-                return pokeType.ground;
+                return PokeType.ground;
             case 11:
-                return pokeType.dark;
+                return PokeType.dark;
             case 12:
-                return pokeType.bug;
+                return PokeType.bug;
             case 13:
-                return pokeType.fighting;
+                return PokeType.fighting;
             case 14:
-                return pokeType.normal;
+                return PokeType.normal;
             case 15:
-                return pokeType.rock;
+                return PokeType.rock;
             case 16:
-                return pokeType.grass;
+                return PokeType.grass;
             case 17:
-                return pokeType.psychic;
+                return PokeType.psychic;
             case 18:
-                return pokeType.ice;
+                return PokeType.ice;
         }
-    }
 
 }
 
 /**
  * Types of pokemon available
  */
-export enum pokeType {
+export enum PokeType {
     normal = "normal",
     fighting = "fighting",
     flying = "flying",
