@@ -4,11 +4,19 @@
     <title>Resumemon</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        div{padding: 10px 10px}
+        #battle{padding-left: 190px; padding-top: 30px; padding-bottom: 20px; padding-right: 20px}
+        #form{border: 1px solid black; display: inline-block}
+    </style>
 </head>
 <body>
 <form action="/" enctype="multipart/form-data" method="post">
-    <input type="file" name="file-to-upload" accept="application/pdf">
-    <input type="submit" value="Upload">
+    <div id="form">
+        <div><p>Pokemon 1: </p><input type="file" name="file-to-upload" accept="application/pdf"></div>
+        <div><p>Pokemon 2: </p><input type="file" name="file-to-upload" accept="application/pdf"></div>
+        <div id="battle"><input type="submit" value="Battle!"></div>
+    </div>
 </form>
 </body>
 </html>
