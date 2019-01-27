@@ -40,7 +40,7 @@ export function getType(): PokeType {
             case 18:
                 return PokeType.ice;
         }
-
+        
 }
 
 /**
@@ -65,4 +65,26 @@ export enum PokeType {
     steel = "steel",
     fairy = "fairy",
     dark = "dark"
+}
+
+let typeMap: any = 
+{       
+    'normal': ['github', 'server', 'database', 'racket'],
+    'fighting': ['docker', 'kubernetes'],
+    'flying': ['agile', 'swift', 'scalability'],
+    'poison': ['blockchain', 'security'],
+    'ground': ['ruby', 'rails', 'django', 'java', 'rust'],
+    'rock': ['sql', 'mysql', 'php', 'dynamodb', 'cassandra', 'postgresql', 'cockroachdb', 'mongodb'],
+    'bug': ['html', 'matlab', 'latax'],
+    'ghost': ['aws', 'azure', 'windows', 'osx', 'encryption'],
+    'fire': ['back-end', 'devops', 'distributed systems', 'golang'],
+    'water': ['erlang', 'scala', 'lua', 'haskell', 'perl', 'ocaml'],
+    'grass': ['app', 'node.js', 'javascript', 'typescript', 'api', 'rest', 'python'],
+    'electric': ['c',  'linux', 'unix', 'bash', 'shell', 'terminal'],
+    'psychic': ['algorithms', 'data structure', 'r'],
+    'ice': ['android', 'kotlin', 'mobile', 'ios'],
+    'dragon': ['cloud', 'full-stack', 'open source', 'big data', 'data mining',],
+    'steel': ['project management', 'leadership', 'software engineering', 'software development'],
+    'fairy': ['front-end', 'web design', 'ux design', 'ui', 'ajax', 'angularjs', 'react', 'css', '.net'],
+    'dark': ['neural networks', 'deep learning', 'vue.js', 'data mining',  'artificial intelligence', 'machine learning'],
 }
