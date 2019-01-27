@@ -1,6 +1,7 @@
 import express from "express";
 import {parse} from "./parse";
 import { generatePowerLevel } from "./powerLevel";
+import {generateMoveSet} from "./MoveSetGenerator";
 const fs = require('fs');
 const multer = require('multer');
 
@@ -29,6 +30,7 @@ app.post('/', upload.single('file-to-upload'), (req, res) => {
     parse(pdfData, globalBuzzwords).then(function(buzzwords: any){
         console.log(buzzwords);
         console.log(generatePowerLevel(buzzwords));
+        console.log(generateMoveSet(buzzwords));
     });
     res.redirect('/pkmn.html');
 });

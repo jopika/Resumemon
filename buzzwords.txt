@@ -9,6 +9,7 @@ Blockchain
 Cloud
 Distributed Systems
 software engineering
+software development
 Linux
 Unix
 Bash
@@ -81,3 +82,4 @@ terminal
 devops
 osx
 windows
+database
