@@ -1,3 +1,1 @@
-import {App} from './App';
-
-new App()
+import {app} from './App';
