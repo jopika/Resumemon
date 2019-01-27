@@ -44,6 +44,7 @@ function calculateBuzzCoefficientScore(nonBuzz: number, totalBuzz: number): numb
     if (buzzCoefficient > allowedBuzzCoefficient) {
         let buzzCoefficientDiff = Math.abs(buzzCoefficient - allowedBuzzCoefficient);
         buzzCoefficientScore = (1 - buzzCoefficientDiff) * 100;
+        console.log("buzzCoefficientDiff: " + buzzCoefficientDiff);
     }
     console.log("buzzCoefficientScore: " + buzzCoefficientScore);
     return buzzCoefficientScore;
@@ -69,6 +70,6 @@ testBuzz.buzzwords =
     "H": 0,
 };
 testBuzz.nonBuzz = 300;
-testBuzz.totalBuzz = 0;
+testBuzz.totalBuzz = 300;
 
 console.log("power level: " + generatePowerLevel(testBuzz));
