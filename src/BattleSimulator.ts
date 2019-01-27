@@ -86,6 +86,9 @@ export class BattleSimulator {
      */
     private updateHealth(p: Pokemon, amt: number): string {
         p.health -= amt;
+        if (p.health < 0) {
+            p.health = 0;
+        }
         console.log(p.name + " has " + p.health + " HP left.");
         return `${p.name} has ${p.health} HP left.`;
     }

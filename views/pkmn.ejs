@@ -16,16 +16,29 @@
 </head>
 
 <script>
+
+
+    function recursiveSleep(stringArray) {
+        if (stringArray.length <= 0) {
+            return;
+        }
+        setTimeout(function() {
+            document.getElementById("eventLog").innerHTML += `<div class='eventMessage'><span><p>${stringArray.shift()}</p></span></div>`;
+            recursiveSleep(stringArray);
+        }, 1000);
+    }
+
     const events = <%- JSON.stringify(eventLog) %>;
 
     function revealEventLog() {
         let eventLogElement = document.getElementById("eventLog");
         eventLogElement.style.display = "block";
-        for (let event of events) {
-            setTimeout(function() {
-                document.getElementById("eventLog").innerHTML += `<div class='eventMessage'><span><p>${event}</p></span></div>`;
-            }, 1000);
-        }
+        // for (let event of events) {
+        //     setTimeout(function() {
+        //         document.getElementById("eventLog").innerHTML += `<div class='eventMessage'><span><p>${event}</p></span></div>`;
+        //     }, 1000);
+        // }
+        recursiveSleep(events);
         let battleButtonElement = document.getElementById("battleButton");
         battleButtonElement.style.display = "none";
 }
