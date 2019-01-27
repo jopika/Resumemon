@@ -1,0 +1,86 @@
+//Agile
+Android
+//App
+//Ajax
+Algorithms
+data structures
+//Back-end
+//Blockchain
+//Cloud
+Distributed Systems
+software engineering
+software development
+Linux
+Unix
+Bash
+//C
+//Data Mining
+//Deep Learning
+//Front-end
+HTML
+Javascript
+Java
+Kotlin
+Github
+Typescript
+Node.js
+Machine Learning
+Mobile
+Web Design
+Scalability
+Server
+Security
+//Encryption
+//UX Design
+//UI
+//full-stack
+//project management
+//leadership
+Golang
+API
+REST
+//SQL
+//MySQL
+//Cassandra
+//PostgreSQL
+//cockroachDB
+//MongoDB
+docker
+kubernetes
+Python
+//artificial intelligence
+//ruby
+//CSS
+//react
+//angularjs
+.net
+swift
+ios
+rust
+typescript
+//django
+//rails
+//vue.js
+big data
+matlab
+latex
+R
+//neural networks
+//dynamodb
+aws
+azure
+//php
+//perl
+//racket
+//haskell
+//lua
+//ocaml
+//erlang
+//scala
+shell
+terminal
+devops
+osx
+windows
+database
+open source
