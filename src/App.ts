@@ -5,6 +5,7 @@ import {generateMoveSet} from "./MoveSetGenerator";
 import {getType, PokeType} from "./typeGenerator";
 import {Pokemon} from "./Pokemon";
 import {Move} from "./Move";
+import {getPokemonByType} from "./pokemonGenerator";
 const fs = require('fs');
 const multer = require('multer');
 
@@ -34,7 +35,8 @@ app.post('/', upload.single('file-to-upload'), (req, res) => {
         let powerLevel: number = generatePowerLevel(buzzwords);
         let moveSet: Set<Move> = generateMoveSet(buzzwords);
         let type: PokeType = getType();
-        let pokemon: Pokemon = new Pokemon("Pikachu", powerLevel, type, moveSet);
+        let name: string = getPokemonByType(type as string);
+        let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet);
         console.log(pokemon);
         //console.log(buzzwords);
         //console.log(generatePowerLevel(buzzwords));
