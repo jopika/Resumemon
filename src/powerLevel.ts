@@ -1,10 +1,10 @@
 import { Buzzwords } from "./Buzzwords";
 
-const optimalBuzzRepeats = 3;
-const optimalRepeatScore = 20;
+const optimalBuzzRepeats = 5;
+const optimalRepeatScore = 30;
 const allowedBuzzCoefficient = 0.3;
 const repeatWeight = 0.8;
-const buzzCoefficientWeight = 0.2;
+const buzzCoefficientWeight = 0.3;
 const maxRandomPowerDecrementor = 10;
 
 export function generatePowerLevel(buzzwords: Buzzwords): number {
@@ -66,4 +66,4 @@ testBuzz.buzzwords =
 testBuzz.nonBuzz = 30;
 testBuzz.totalBuzz = 300;
 
-console.log("power level: " + generatePowerLevel(testBuzz));
+// console.log("power level: " + generatePowerLevel(testBuzz));
