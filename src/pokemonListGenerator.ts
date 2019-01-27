@@ -1,3 +1,6 @@
+// The sole purpose of this function is to add pokemon to the pokemon.json file
+// This should not be used ever again unless your name is Stevens Qiu
+
 const fs = require('fs');
 const process = require('process');
 
