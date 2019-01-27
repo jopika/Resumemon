@@ -27,6 +27,7 @@
     function recursiveSleep(stringArray) {
         if (stringArray.length <= 0) {
             document.getElementById("battleMusic").pause();
+            document.getElementById("victoryMusic").play();
             return;
         }
         setTimeout(function() {
@@ -54,11 +55,12 @@
 }
 </script>
 <body>
-<!--<audio src="pokemonBattleTheme.mp3" autoplay id="battleMusic">-->
-    <audio src="pokemonBattleTheme.mp3" id="battleMusic">
-            <p>If you are reading this, it is because your browser does not support the audio element.     </p>
-            <!--<embed src="pokemonBattleTheme.mp3" width="180" height="90" hidden="true" />-->
-        </audio>
+<audio src="pokemonBattleTheme.mp3" id="battleMusic">
+    <p>If you are reading this, it is because your browser does not support the audio element.     </p>
+</audio>
+<audio src="pokemonVictory.mp3" id="victoryMusic">
+    <p>If you are reading this, it is because your browser does not support the audio element.     </p>
+</audio>
 <% for (const pokemon of pokemons) { %>
     <div class="pokemon" id="pkmn">
         <img height=400 src="<%= pokemon.image %>"/>
