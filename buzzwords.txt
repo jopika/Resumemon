@@ -13,8 +13,6 @@ Linux
 Unix
 Bash
 C
-C++
-C
 Data Mining
 Deep Learning
 Design Pattern
@@ -50,5 +48,4 @@ MongoDB
 docker
 kubernetes
 Python
-
-
+artificial intelligence
