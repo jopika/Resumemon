@@ -23,31 +23,41 @@ app.get('/', (req, res) => {
     res.sendFile(__dirname + '/../src/public/index.html');
 });
 
-app.post('/', upload.single('file-to-upload'), (req, res) => {
-    let pdfData = fs.readFileSync('uploads/' + req.file.filename);
-    let buzzwordsData = fs.readFileSync('buzzwords.txt').toString().trim().toLowerCase();
-    // Delete uploaded resume from our uploads folder once we're done reading it
-    if (fs.existsSync('uploads/' + req.file.filename)) {
-        fs.unlinkSync('uploads/' + req.file.filename);
-    }
-    let globalBuzzwords = buzzwordsData.split('\n');
+app.post('/', upload.array('file-to-upload', 2), (req, res) => {
+    const pokemons = [];
+    for (const file of (req.files as Express.Multer.File[])) {
+        let pdfData = fs.readFileSync('uploads/' + file.filename);
+        let buzzwordsData = fs.readFileSync('buzzwords.txt').toString().trim().toLowerCase();
+        // Delete uploaded resume from our uploads folder once we're done reading it
+        if (fs.existsSync('uploads/' + file.filename)) {
+            fs.unlinkSync('uploads/' + file.filename);
+        }
+        let globalBuzzwords = buzzwordsData.split('\n');
 
-    // Parse the resume and do stuff with the returned Buzzwords object
-    parse(pdfData, globalBuzzwords).then(function(buzzwords: any){
-        let powerLevel: number = generatePowerLevel(buzzwords);
-        let moveSet: Set<Move> = generateMoveSet(buzzwords);
-        let type: PokeType = getType();
-        let name: string = getPokemonByType(type as string);
-        let imgUrl: string = getPokemonImageString(name);
-        let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet, imgUrl);
-        console.log(pokemon);
-        //console.log(buzzwords);
-        //console.log(generatePowerLevel(buzzwords));
-        //console.log(generateMoveSet(buzzwords));
-        //console.log(getType());
-        res.render('pkmn', pokemon);
-    });
+        // Parse the resume and do stuff with the returned Buzzwords object
+        pokemons.push(parse(pdfData, globalBuzzwords).then(function (buzzwords: any) {
+            let powerLevel: number = generatePowerLevel(buzzwords);
+            let moveSet: Set<Move> = generateMoveSet(buzzwords);
+            let type: PokeType = getType();
+            let name: string = getPokemonByType(type as string);
+            let imgUrl: string = getPokemonImageString(name);
+            let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet, imgUrl);
+            return pokemon;
+            //console.log(buzzwords);
+            //console.log(generatePowerLevel(buzzwords));
+            //console.log(generateMoveSet(buzzwords));
+            //console.log(getType());
+        }));
+    }
+
+    Promise.all(pokemons).then((pokemons) => {
+        res.render('pkmn', {pokemons});
+    })
 });
+
+app.post('/', upload.single('second-file-to-upload'), (req, res) => {
+
+}) ;
 
 app.listen(3000);
 
