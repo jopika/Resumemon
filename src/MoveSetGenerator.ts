@@ -5,7 +5,7 @@ import {Move} from "./Move";
 let MAX_DAMAGE: number = 40;
 
 export function generateMoveSet(buzzwordObj: Buzzwords): Set<Move> {
-    let moveNames: Set<String> = new Set<String>();
+    let moveNames: Set<string> = new Set<string>();
 
     let density = generateCumulativeDensity(buzzwordObj);
     let buzzwordKeys = Object.keys(buzzwordObj.buzzwords);
