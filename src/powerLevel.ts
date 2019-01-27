@@ -33,14 +33,19 @@ function calculateRepeatScore(buzzwords: {[key: string]: number}) {
     // console.log(totalRepeatScore);
     totalRepeatScore = totalRepeatScore / optimalRepeatScore * 100;
     totalRepeatScore = Math.min(totalRepeatScore, 100);
-    // console.log(totalRepeatScore);
+    console.log("totalRepeatScore: " + totalRepeatScore);
     return totalRepeatScore;
 }
 
 function calculateBuzzCoefficientScore(nonBuzz: number, totalBuzz: number): number {
     let buzzCoefficient: number = totalBuzz/(totalBuzz + nonBuzz);
-    let buzzCoefficientDiff = Math.abs(buzzCoefficient - allowedBuzzCoefficient);
-    let buzzCoefficientScore = (1 - buzzCoefficientDiff) * 100;
+    let buzzCoefficientScore = (buzzCoefficient / allowedBuzzCoefficient) * 100;
+    console.log("buzzCoefficientScore: " + buzzCoefficientScore);
+    if (buzzCoefficient > allowedBuzzCoefficient) {
+        let buzzCoefficientDiff = Math.abs(buzzCoefficient - allowedBuzzCoefficient);
+        buzzCoefficientScore = (1 - buzzCoefficientDiff) * 100;
+    }
+    console.log("buzzCoefficientScore: " + buzzCoefficientScore);
     return buzzCoefficientScore;
 }
 
@@ -54,16 +59,16 @@ function randomizePower(maxPowerLevel: number) {
 let testBuzz = new Buzzwords();
 testBuzz.buzzwords = 
 {
-    "A": 3,
-    "B": 2,
-    "C": 3,
-    "D": 1,
-    "E": 4,
-    "F": 3,
-    "G": 2,
-    "H": 1,
+    "A": 0,
+    "B": 0,
+    "C": 0,
+    "D": 0,
+    "E": 0,
+    "F": 0,
+    "G": 0,
+    "H": 0,
 };
-testBuzz.nonBuzz = 30;
-testBuzz.totalBuzz = 300;
+testBuzz.nonBuzz = 300;
+testBuzz.totalBuzz = 0;
 
-// console.log("power level: " + generatePowerLevel(testBuzz));
+console.log("power level: " + generatePowerLevel(testBuzz));
