@@ -39,8 +39,9 @@ function calculateRepeatScore(buzzwords: {[key: string]: number}) {
 
 function calculateBuzzCoefficientScore(nonBuzz: number, totalBuzz: number): number {
     let buzzCoefficient: number = totalBuzz/(totalBuzz + nonBuzz);
+    
     let buzzCoefficientDiff = Math.abs(buzzCoefficient - allowedBuzzCoefficient);
-    let buzzCoefficientScore = (1 - buzzCoefficientDiff) * 100;
+    let buzzCoefficientScore = (allowedBuzzCoefficient - buzzCoefficientDiff) * 100;
     return buzzCoefficientScore;
 }
 
