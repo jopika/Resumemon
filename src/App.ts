@@ -6,6 +6,7 @@ import {getType, PokeType} from "./typeGenerator";
 import {Pokemon} from "./Pokemon";
 import {Move} from "./Move";
 import {getPokemonByType} from "./pokemonGenerator";
+import {getPokemonImageString} from "./pokemonSpriteGenerator";
 const fs = require('fs');
 const multer = require('multer');
 
@@ -15,6 +16,7 @@ const upload = multer({
 
 const app = express();
 app.set("port", process.env.PORT || 3000);
+app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/../src/public'));
 
 app.get('/', (req, res) => {
@@ -36,14 +38,15 @@ app.post('/', upload.single('file-to-upload'), (req, res) => {
         let moveSet: Set<Move> = generateMoveSet(buzzwords);
         let type: PokeType = getType();
         let name: string = getPokemonByType(type as string);
-        let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet);
+        let imgUrl: string = getPokemonImageString(name);
+        let pokemon: Pokemon = new Pokemon(name, powerLevel, type, moveSet, imgUrl);
         console.log(pokemon);
         //console.log(buzzwords);
         //console.log(generatePowerLevel(buzzwords));
         //console.log(generateMoveSet(buzzwords));
         //console.log(getType());
+        res.render('pkmn', pokemon);
     });
-    res.redirect('/pkmn.html');
 });
 
 app.listen(3000);

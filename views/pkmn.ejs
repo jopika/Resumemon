@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumemon</title>
+    <style>
+        td,th{padding: 5px 16px; text-align:left}
+    </style>
+</head>
+<body>
+<div>
+    <p>Your Pokemon!</p>
+    <img height=400 src="<%= image %>"/>
+    <p><b>NAME: </b><%= name.toUpperCase() %></p>
+    <p><b>LEVEL: </b><%= level %></p>
+    <p><b>TYPE: </b><%= type.toUpperCase() %></p>
+    <p><b>TOTAL HEALTH: </b><%= health %></p>
+    <p><b>MOVESET: </b>
+    <table>
+        <thead>
+        <th>MOVE</th>
+        <th>DAMAGE</th>
+        </thead>
+        <% for (let move of moveset) { %>
+        <tr>
+            <td><%= move.name %></td>
+            <td><%= move.damage %></td>
+        </tr>
+        <% } %>
+    </table></p>
+</div>
+
+</body>
+</html>
+
