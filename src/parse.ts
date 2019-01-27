@@ -1,27 +1,33 @@
 import {Buzzwords} from "./Buzzwords";
 const pdf = require('pdf-parse');
-const fs = require('fs');
+const sw = require('stopword')
 
-export function parse() {
-    let dataBuffer = fs.readFileSync('/home/jinny/jinnybyun_resume.pdf');
+export function parse(pdfData: any, globalBuzzwords: string[]) {
 
-    pdf(dataBuffer).then(function(data: any) {
-        let resume: string = data.text;
-        resume = resume.toLowerCase();
+    return pdf(pdfData).then(function(data: any) {
+        let oldResume: string = data.text;
+        oldResume = oldResume.toLowerCase();
+        let resumeArr = sw.removeStopwords(oldResume.trim().split(/\s+/));
+        let nonBuzzwords = resumeArr.length;
+
+        let resume: String = resumeArr.join(" ");
+        resume = resume.trim();
 
         let buzzwords: Buzzwords = new Buzzwords();
         let totalBuzzwords: number = 0;
-        let globalBuzzwords = ['software engineering', 'president'];
         for (let word of globalBuzzwords) {
-            let regexp = new RegExp(word, 'g');
+            let regexp = new RegExp(word+'\\W', 'g');
             let count: number = (resume.match(regexp) || []).length;
-            buzzwords.buzzwords[word] = count;
-            totalBuzzwords += count;
+            if (count > 0) {
+                buzzwords.buzzwords[word] = count;
+                totalBuzzwords += count;
+            }
         }
+        nonBuzzwords -= totalBuzzwords;
+        buzzwords.nonBuzz = nonBuzzwords;
         buzzwords.totalBuzz = totalBuzzwords;
-        console.log(buzzwords);
+
+        return buzzwords;
     });
-
-
 }
-parse();
+
