@@ -20,11 +20,8 @@
   "homepage": "https://github.com/jopika/nwHacks2019#readme",
   "dependencies": {
     "@types/express": "^4.16.1",
-<<<<<<< HEAD
     "express": "^4.16.4",
-=======
     "pdf-parse": "^1.1.1",
->>>>>>> 0775a43048afe01546b95815c4099412eaa315b9
     "typescript": "^3.2.4"
   }
 }
