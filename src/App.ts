@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', upload.single('file-to-upload'), (req, res) => {
-    let pdfData = fs.readFileSync('uploads/'+req.file.filename);
+    let pdfData = fs.readFileSync('uploads/' + req.file.filename);
     let buzzwordsData = fs.readFileSync('buzzwords.txt').toString().trim().toLowerCase();
     // Delete uploaded resume from our uploads folder once we're done reading it
     if (fs.existsSync('uploads/' + req.file.filename)) {
@@ -30,7 +30,7 @@ app.post('/', upload.single('file-to-upload'), (req, res) => {
         console.log(buzzwords);
         console.log(generatePowerLevel(buzzwords));
     });
-    res.redirect('/');
+    res.redirect('/pkmn.html');
 });
 
 app.listen(3000);
