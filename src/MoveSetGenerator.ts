@@ -2,7 +2,8 @@ import { Buzzwords } from "./Buzzwords";
 import {Move} from "./Move";
 
 
-let MAX_DAMAGE: number = 40;
+let MIN_DAMAGE: number = 10;
+let MAX_DAMAGE: number = 50;
 
 export function generateMoveSet(buzzwordObj: Buzzwords): Set<Move> {
     let moveNames: Set<string> = new Set<string>();
@@ -48,7 +49,8 @@ export function generateMoveSet(buzzwordObj: Buzzwords): Set<Move> {
     let moveSet: Set<Move> = new Set<Move>();
 
     for (let moveName of moveNames) {
-        moveSet.add(new Move(moveName, generateRandomInt(MAX_DAMAGE)));
+        moveSet.add(new Move(moveName,
+            generateRandomInt(MAX_DAMAGE - MIN_DAMAGE) + MIN_DAMAGE));
     }
 
     return moveSet;
