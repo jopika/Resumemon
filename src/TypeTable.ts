@@ -14,6 +14,9 @@ export class TypeTable {
     }
 
     public getDamageMultiplier(attacker: PokeType, defender: PokeType): number {
+        // console.log(`Attacker: ${attacker}; Defender ${defender}`);
+        // console.log(`Full Table: ${JSON.stringify(this.lookupTable)}`);
+        // console.log(`First Level: ${JSON.stringify(this.lookupTable.get(attacker))}`);
         return this.lookupTable.get(attacker).get(defender);
     }
 
@@ -352,70 +355,72 @@ export class TypeTable {
         fullTable.set(PokeType.ice, newRow);
 
 //Dragon
-        newRow = new Map();
-        newRow.set(PokeType.normal,DAMAGE_NORMAL);
-        newRow.set(PokeType.fighting,DAMAGE_NORMAL);
-        newRow.set(PokeType.flying,DAMAGE_NORMAL);
-        newRow.set(PokeType.poison,DAMAGE_NORMAL);
-        newRow.set(PokeType.ground,DAMAGE_NORMAL);
-        newRow.set(PokeType.rock,DAMAGE_NORMAL);
-        newRow.set(PokeType.bug,DAMAGE_NORMAL);
-        newRow.set(PokeType.ghost,DAMAGE_NORMAL);
-        newRow.set(PokeType.steel,DAMAGE_RESIST);
-        newRow.set(PokeType.fire,DAMAGE_NORMAL);
-        newRow.set(PokeType.water,DAMAGE_NORMAL);
-        newRow.set(PokeType.grass,DAMAGE_NORMAL);
-        newRow.set(PokeType.electric,DAMAGE_NORMAL);
-        newRow.set(PokeType.psychic,DAMAGE_NORMAL);
-        newRow.set(PokeType.ice,DAMAGE_NORMAL);
-        newRow.set(PokeType.dragon,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.dark,DAMAGE_NORMAL);
-        newRow.set(PokeType.fairy,DAMAGE_RESIST);
-        fullTable.set(PokeType.dragon, newRow);
+        let dragonRow = new Map();
+        dragonRow.set(PokeType.normal,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.fighting,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.flying,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.poison,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.ground,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.rock,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.bug,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.ghost,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.steel,DAMAGE_RESIST);
+        dragonRow.set(PokeType.fire,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.water,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.grass,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.electric,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.psychic,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.ice,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.dragon,DAMAGE_EFFECTIVE);
+        dragonRow.set(PokeType.dark,DAMAGE_NORMAL);
+        dragonRow.set(PokeType.fairy,DAMAGE_RESIST);
+        fullTable.set(PokeType.dragon, dragonRow);
 
 //Dark
-        newRow = new Map();
-        newRow.set(PokeType.normal,DAMAGE_NORMAL);
-        newRow.set(PokeType.fighting,DAMAGE_RESIST);
-        newRow.set(PokeType.flying,DAMAGE_NORMAL);
-        newRow.set(PokeType.poison,DAMAGE_NORMAL);
-        newRow.set(PokeType.ground,DAMAGE_NORMAL);
-        newRow.set(PokeType.rock,DAMAGE_NORMAL);
-        newRow.set(PokeType.bug,DAMAGE_NORMAL);
-        newRow.set(PokeType.ghost,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.steel,DAMAGE_NORMAL);
-        newRow.set(PokeType.fire,DAMAGE_NORMAL);
-        newRow.set(PokeType.water,DAMAGE_NORMAL);
-        newRow.set(PokeType.grass,DAMAGE_NORMAL);
-        newRow.set(PokeType.electric,DAMAGE_NORMAL);
-        newRow.set(PokeType.psychic,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.ice,DAMAGE_NORMAL);
-        newRow.set(PokeType.dragon,DAMAGE_NORMAL);
-        newRow.set(PokeType.dark,DAMAGE_RESIST);
-        newRow.set(PokeType.fairy,DAMAGE_RESIST);
-        fullTable.set(PokeType.dark, newRow);
+        let darkRow = new Map();
+        darkRow.set(PokeType.normal,DAMAGE_NORMAL);
+        darkRow.set(PokeType.fighting,DAMAGE_RESIST);
+        darkRow.set(PokeType.flying,DAMAGE_NORMAL);
+        darkRow.set(PokeType.poison,DAMAGE_NORMAL);
+        darkRow.set(PokeType.ground,DAMAGE_NORMAL);
+        darkRow.set(PokeType.rock,DAMAGE_NORMAL);
+        darkRow.set(PokeType.bug,DAMAGE_NORMAL);
+        darkRow.set(PokeType.ghost,DAMAGE_EFFECTIVE);
+        darkRow.set(PokeType.steel,DAMAGE_NORMAL);
+        darkRow.set(PokeType.fire,DAMAGE_NORMAL);
+        darkRow.set(PokeType.water,DAMAGE_NORMAL);
+        darkRow.set(PokeType.grass,DAMAGE_NORMAL);
+        darkRow.set(PokeType.electric,DAMAGE_NORMAL);
+        darkRow.set(PokeType.psychic,DAMAGE_EFFECTIVE);
+        darkRow.set(PokeType.ice,DAMAGE_NORMAL);
+        darkRow.set(PokeType.dragon,DAMAGE_NORMAL);
+        darkRow.set(PokeType.dark,DAMAGE_RESIST);
+        darkRow.set(PokeType.fairy,DAMAGE_RESIST);
+        fullTable.set(PokeType.dark, darkRow);
 
 //Fairy
-        newRow = new Map();
-        newRow.set(PokeType.normal,DAMAGE_NORMAL);
-        newRow.set(PokeType.fighting,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.flying,DAMAGE_NORMAL);
-        newRow.set(PokeType.poison,DAMAGE_RESIST);
-        newRow.set(PokeType.ground,DAMAGE_NORMAL);
-        newRow.set(PokeType.rock,DAMAGE_NORMAL);
-        newRow.set(PokeType.bug,DAMAGE_NORMAL);
-        newRow.set(PokeType.ghost,DAMAGE_NORMAL);
-        newRow.set(PokeType.steel,DAMAGE_RESIST);
-        newRow.set(PokeType.fire,DAMAGE_RESIST);
-        newRow.set(PokeType.water,DAMAGE_NORMAL);
-        newRow.set(PokeType.grass,DAMAGE_NORMAL);
-        newRow.set(PokeType.electric,DAMAGE_NORMAL);
-        newRow.set(PokeType.psychic,DAMAGE_NORMAL);
-        newRow.set(PokeType.ice,DAMAGE_NORMAL);
-        newRow.set(PokeType.dragon,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.dark,DAMAGE_EFFECTIVE);
-        newRow.set(PokeType.fairy,DAMAGE_NORMAL);
-        fullTable.set(PokeType.fairy, newRow);
+        let fairyRow = new Map();
+        fairyRow.set(PokeType.normal,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.fighting,DAMAGE_EFFECTIVE);
+        fairyRow.set(PokeType.flying,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.poison,DAMAGE_RESIST);
+        fairyRow.set(PokeType.ground,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.rock,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.bug,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.ghost,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.steel,DAMAGE_RESIST);
+        fairyRow.set(PokeType.fire,DAMAGE_RESIST);
+        fairyRow.set(PokeType.water,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.grass,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.electric,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.psychic,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.ice,DAMAGE_NORMAL);
+        fairyRow.set(PokeType.dragon,DAMAGE_EFFECTIVE);
+        fairyRow.set(PokeType.dark,DAMAGE_EFFECTIVE);
+        fairyRow.set(PokeType.fairy,DAMAGE_NORMAL);
+        fullTable.set(PokeType.fairy, fairyRow);
+
+        this.lookupTable = fullTable;
     }
 }
 

@@ -11,6 +11,16 @@
         }
     </style>
 </head>
+
+<script>
+function revealEventLog() {
+    let eventLogElement = document.getElementById("eventLog");
+    eventLogElement.style.display = "block";
+
+    let battleButtonElement = document.getElementById("battleButton");
+    battleButtonElement.style.display = "none";
+}
+</script>
 <body>
 <% for (const pokemon of pokemons) { %>
     <div class="pokemon">
@@ -35,6 +45,19 @@
     </div>
 <% } %>
 
+<% if (eventLog.length > 0) { %>
+<button onclick="revealEventLog()" id="battleButton">
+    Battle!
+</button>
+<% } %>
+
+<div class="eventLog" id="eventLog" style="display: none">
+<% for (const eventString of eventLog) { %>
+    <div class="eventMessage">
+        <span><%=eventString%></span>
+    </div>
+<%}%>
+</div>
 </body>
 </html>
 

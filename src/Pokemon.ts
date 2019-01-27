@@ -24,7 +24,7 @@ export class Pokemon {
     public pickAttack(): Move {
         let numMoves = this.moveset.size;
         let moveArr = Array.from(this.moveset);
-        return moveArr[Math.floor(Math.random() * numMoves + 1)];
+        return moveArr[Math.floor(Math.random() * (numMoves))];
     }
 
 }

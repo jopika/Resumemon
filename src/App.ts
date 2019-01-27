@@ -7,6 +7,7 @@ import {Pokemon} from "./Pokemon";
 import {Move} from "./Move";
 import {getPokemonByType} from "./pokemonGenerator";
 import {getPokemonImageString} from "./pokemonSpriteGenerator";
+import {BattleSimulator} from "./BattleSimulator";
 const fs = require('fs');
 const multer = require('multer');
 
@@ -24,7 +25,7 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', upload.array('file-to-upload', 2), (req, res) => {
-    const pokemons = [];
+    const pokemons: Promise<Pokemon>[] = [];
     for (const file of (req.files as Express.Multer.File[])) {
         let pdfData = fs.readFileSync('uploads/' + file.filename);
         let buzzwordsData = fs.readFileSync('buzzwords.txt').toString().trim().toLowerCase();
@@ -51,7 +52,23 @@ app.post('/', upload.array('file-to-upload', 2), (req, res) => {
     }
 
     Promise.all(pokemons).then((pokemons) => {
-        res.render('pkmn', {pokemons});
+        if (pokemons.length > 1) {
+            // simulate a battle
+            let simulator: BattleSimulator = new BattleSimulator();
+            let eventLog: Array<string> = simulator.battle(pokemons[0], pokemons[1]);
+
+            res.render('pkmn', {
+                pokemons: pokemons,
+                eventLog: eventLog,
+            })
+
+        } else {
+            res.render('pkmn', {
+                pokemons: pokemons,
+                eventLog: [],
+            });
+        }
+
     })
 });
 
