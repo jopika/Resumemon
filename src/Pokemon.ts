@@ -3,14 +3,15 @@ import {PokeType} from "./typeGenerator";
 export class Pokemon {
     name: string;
     level: number;
-    type: PokeType;
+    type: string;
     health: number;
     moveset: Set<Move>;
     image: string;
 
-    constructor(name: string, powerLevel: number, type: PokeType, moveset: Set<Move>, image: string) {
+    constructor(name: string, powerLevel: number, type: string, moveset: Set<Move>, image: string) {
         this.name = name;
-        this.health = Math.ceil(200 + (Math.log(powerLevel) / Math.log(10)) * 100);
+        this.health = Math.ceil(200 + powerLevel * 2);
+        // this.health = Math.ceil(200 + (Math.log(powerLevel) / Math.log(10)) * 100);
         this.level = powerLevel;
         this.type = type;
         this.moveset = moveset;
