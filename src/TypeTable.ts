@@ -13,7 +13,7 @@ export class TypeTable {
         this.initialize();
     }
 
-    public getDamageMultiplier(attacker: PokeType, defender: PokeType): number {
+    public getDamageMultiplier(attacker: string, defender: string): number {
         // console.log(`Attacker: ${attacker}; Defender ${defender}`);
         // console.log(`Full Table: ${JSON.stringify(this.lookupTable)}`);
         // console.log(`First Level: ${JSON.stringify(this.lookupTable.get(attacker))}`);
