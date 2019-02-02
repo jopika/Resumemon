@@ -1,11 +1,11 @@
 {
-  "name": "nwHacks2019",
+  "name": "Resumemon",
   "version": "1.0.0",
-  "description": "We are going to make a really cool project here.",
+  "description": "Battle your resumes against each other! nwHacks 2019 Project.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/index.js"
+    "start": "node dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -29,5 +29,8 @@
     "pokemon-font": "^1.8.1",
     "stopword": "^0.1.13",
     "typescript": "^3.2.4"
+  },
+  "now": {
+    "alias": "resumemon.rice.sh"
   }
 }
